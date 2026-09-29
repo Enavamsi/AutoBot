@@ -28,7 +28,14 @@ This README explains every package and file in the workspace, how the pieces fit
 16. [Troubleshooting](#16-troubleshooting)
 17. [Command cheat sheet](#17-command-cheat-sheet)
 18. [Known limitations / next steps](#18-known-limitations--next-steps)
-19. [Credits and licenses](#19-credits-and-licenses)
+
+
+https://github.com/user-attachments/assets/abea26d4-6d08-4db9-8f9f-df0ca5b69975
+
+
+https://github.com/user-attachments/assets/416238e5-1458-4cb9-9c23-09d0e3d67f91
+
+
 
 ---
 
@@ -812,9 +819,3 @@ pkill -f robot_state_publisher; pkill -f joint_state_publisher
 - Sensible improvements: add a wheel-odometry/IMU consistency monitor, a systemd service that runs `port_hunter.py` then the launch file at boot, and a saved-maps folder in the repo.
 
 ---
-
-## 19. Credits and licenses
-
-- `sllidar_ros2` – © RoboPeak Team / Shanghai Slamtec Co., Ltd. Included under its own license (see `sllidar_ros2/LICENSE`).
-- Navigation: [Nav2](https://docs.nav2.org/), SLAM: [slam_toolbox](https://github.com/SteveMacenski/slam_toolbox), fusion: [robot_localization](https://docs.ros.org/en/jazzy/p/robot_localization/).
-- Project code (`my_robot_*`): add your license here (for example MIT or Apache-2.0) and a `LICENSE` file in the repo root.
