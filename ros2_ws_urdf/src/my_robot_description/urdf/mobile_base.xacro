@@ -143,7 +143,7 @@
 	<joint name="imu_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="imu_link"/>
-		<origin xyz="0 0 0.15"/>
+		<origin xyz="0 0 0.15" rpy="0.03302 0.06168 0"/>
 	</joint>
 
 
@@ -174,7 +174,7 @@
 	<joint name="lidar_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="lidar_link"/>
-		<origin xyz="0 0 0.225"/>
+		<origin xyz="0.12 0.0 0.225" rpy="0 0 3.14159"/>
 	</joint>
 
 
