@@ -1,0 +1,68 @@
+# Every robot setting lives here (Pi side). Edit, restart the driver, or change live with:
+#   ros2 param set /esp32_driver <name> <value>
+# Floats must contain a decimal point (1.0, not 1). Save live changes with:
+#   ros2 param dump /esp32_driver > robot_params.yaml
+esp32_driver:
+  ros__parameters:
+    port: /tmp/esp32_base            # e.g. /dev/ttyUSB0
+    baudrate: 115200                 # must equal BAUD in the firmware
+
+    # --- geometry / calibration (from the calibration GUI) ---
+    wheel_radius: 0.0425
+    wheel_separation: 0.28
+    ticks_per_rev: 3272.0            # firmware decodes 4x. Your old 1x value 876 -> 3504. Verify with the straight test.
+    left_scale: 1.0                  # per-wheel correction; right_scale > left_scale if the robot pulls LEFT and odom says straight
+    right_scale: 1.0
+
+    # --- wheel speed PID (runs on ESP32). kp: PWM per rad/s, ki: PWM per rad, kff: PWM per rad/s feed-forward ---
+    kp_left: 40.0
+    ki_left: 60.0
+    kff_left: 0.0
+    kp_right: 40.0
+    ki_right: 60.0
+    kff_right: 0.0
+    pwm_min: 0.0                     # motor dead-zone compensation (raise until the wheel just starts to move)
+    pwm_freq: 20000                  # Hz. 20 kHz is inaudible; try 15000-25000 if the L298N gets hot/weak
+    speed_lpf: 0.3                   # speed filter 0..1 (smaller = smoother, slower)
+    idle_w: 0.05                     # rad/s: below this target the motors are switched fully OFF (no hum)
+    fw_cmd_timeout_ms: 300
+    telem_hz: 50
+
+    # --- direction flips (no re-flash needed) ---
+    invert_left_motor: false
+    invert_right_motor: false
+    invert_left_encoder: false
+    invert_right_encoder: true
+    imu_source: 0                    # 0 = no magnetometer (recommended near motors), 1 = with magnetometer
+
+    # --- command shaping ---
+    max_linear_accel: 1.5
+    max_angular_accel: 2.0
+    max_linear_decel: 1.5
+    max_angular_decel: 5.0
+    vel_snap_linear: 0.02
+    vel_snap_angular: 0.05
+    cmd_timeout: 0.5
+    cmd_rate_hz: 50.0
+
+    # --- telemetry sanity ---
+    max_dt: 0.5
+    max_ticks_per_read: 8000.0
+    encoder_noise_ticks: 2
+
+    # --- IMU corrections (from the GUI "IMU tilt" tab) ---
+    gyro_bias_x: 0.0
+    gyro_bias_y: 0.0
+    gyro_bias_z: 0.0
+    odom_frame: odom
+    base_frame: base_footprint
+    imu_frame: imu_link
+
+    # --- covariances (variances) ---
+    cov_pos: 0.02
+    cov_yaw: 0.05
+    cov_vx: 0.02
+    cov_wz: 0.05
+    cov_imu_orient: 0.0025
+    cov_imu_gyro: 0.0004
+    cov_imu_accel: 0.0064
