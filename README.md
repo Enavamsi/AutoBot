@@ -7,6 +7,8 @@ This README explains every package and file in the workspace, how the pieces fit
 > **Note on versions.** The values quoted below (dimensions, parameter defaults, topic names) come from the workspace as reviewed. Your own YAML files may differ. If something in this README disagrees with your files, your files win – see [Troubleshooting → "Nav2 crashes / wrong YAML version"](#nav2-controller_server-crashes-with-exit-code--11-segfault).
 
 ---
+<img width="720" height="1280" alt="image" src="https://github.com/user-attachments/assets/2b76889d-62aa-4bfe-8b87-dbcf3ac2122f" />
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/bb0618e3-6802-4034-ad61-a44379e99218" />
 
 ## Table of contents
 
